@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+import * as React from 'react';
+import { Dialog, DialogOverlay, DialogContent } from '@reach/dialog';
+import VisuallyHidden from '@reach/visually-hidden';
+import '@reach/dialog/styles.css';
 import './App.css';
 
-function App() {
+export function App(props) {
+  const [showDialog, setShowDialog] = React.useState(false);
+  const open = () => setShowDialog(true);
+  const close = () => setShowDialog(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div>
+      <button onClick={open}>Open Dialog</button>
+
+      <Dialog isOpen={showDialog} onDismiss={close}>
+        <button className="close-button" onClick={close}>
+          <VisuallyHidden>Close</VisuallyHidden>
+          <span aria-hidden>×</span>
+        </button>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Hello there. I am a dialog. <a href="/something">Here</a> is some{' '}
+          <a href="/something-else">Focusable Content</a>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </Dialog>
     </div>
   );
 }
-
-export default App;
