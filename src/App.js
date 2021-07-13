@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Dialog, DialogOverlay, DialogContent } from '@reach/dialog';
+import { Dialog } from '@reach/dialog';
 import VisuallyHidden from '@reach/visually-hidden';
 import '@reach/dialog/styles.css';
 import './App.css';
@@ -13,7 +13,7 @@ export function App(props) {
     <div>
       <button onClick={open}>Open Dialog</button>
 
-      <Dialog isOpen={showDialog} onDismiss={close}>
+      <Dialog isOpen={showDialog} onDismiss={close} aria-label="example dialog">
         <button className="close-button" onClick={close}>
           <VisuallyHidden>Close</VisuallyHidden>
           <span aria-hidden>×</span>
