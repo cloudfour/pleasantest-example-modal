@@ -4,7 +4,7 @@ import VisuallyHidden from '@reach/visually-hidden';
 import '@reach/dialog/styles.css';
 import './App.css';
 
-export function App(props) {
+export const App = () => {
   const [showDialog, setShowDialog] = React.useState(false);
   const open = () => setShowDialog(true);
   const close = () => setShowDialog(false);
